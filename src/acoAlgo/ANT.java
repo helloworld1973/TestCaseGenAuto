@@ -8,7 +8,7 @@ import testedProg.Triangle;
 
 /**
  *
- * 
+ * author: Jason Ye
  */
 public class ANT {
 
