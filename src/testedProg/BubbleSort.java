@@ -10,8 +10,10 @@ public class BubbleSort{
 		for (int i = 1; i < array.length;i++)
 		{
 			//compare 2 neighbouring elements, move the bigger one backward
-			for (int j=0;j <array.length-i;j++){
-				if (array[j] >array[j +1]){
+			for (int j=0;j <array.length-i;j++)
+			{
+				if (array[j] >array[j +1])
+				{
 					int temp = array[j];
 					array[j] = array[j+1];
 					array[j+1] = temp;
@@ -23,7 +25,8 @@ public class BubbleSort{
 
 	public void showArray(int [] array)
 	{
-		for(int i:array){
+		for(int i:array)
+		{
 			System.out.print(">"+i);
 		}
 		System.out.println();
