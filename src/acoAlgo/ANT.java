@@ -104,10 +104,10 @@ public class ANT {
         for (int i = 0; i < Allowed.size(); i++) {
             p += Allowed.get(i) + ";";
         }
-        System.out.println(p);
+       // System.out.println(p);
     }
         
-    public String updatePheromone(double Q,long t)
+    public String updatePheromone(double Q,long t,String weWantRoute)
 {
         Q = Q/roadLength;
         //后面的部分需要修改
@@ -133,12 +133,13 @@ public class ANT {
         int c=Integer.parseInt(tools.deCode2to10(cString));
         Triangle triangle=new Triangle();
         String realRoute=triangle.judge(a, b, c);
-        String weWantRoute="22";//000 && 001 && 11 && 22 && 33 
+        //String weWantRoute="22";//000 && 001 && 11 && 22 && 33 
         double score=tools.calScore(weWantRoute, realRoute);
         if(score==1.0)
         {
         	System.out.println("!!!!!!!!!!!!!!!!!!!!"+a+"!!!!!!!!!!!!"+b+"!!!!!!!!!!!!!!!!"+c);
             return "!";
+            
         }
         Q=Q*score;
         

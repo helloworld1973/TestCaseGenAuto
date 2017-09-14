@@ -19,26 +19,26 @@ public class Triangle
 			if(a==c){
 				routeString+="0";
 				n=2;
-				System.out.println("000");
+				//System.out.println("000");
 			}else
 			{
 				routeString+="1";
-				System.out.println("001");
+				//System.out.println("001");
 			}
 		}
 		else if(a==c){
 			routeString+="11";
 			n=1;		
-			System.out.println("11");
+			//System.out.println("11");
 		}
 		else if(b==c){
 			routeString+="22";
 			n=1;
-			System.out.println("22");
+			//System.out.println("22");
 		}
 		else {
 			routeString+="33";
-			System.out.println("33");
+			//System.out.println("33");
 		}
 		
 		/*if(n==0){

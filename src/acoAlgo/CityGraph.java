@@ -70,20 +70,20 @@ public class CityGraph
     
     
     private void printlndistance() {
-        System.out.printf("%8s","");
+        //System.out.printf("%8s","");
         for (int i = 0; i < num; i++) 
         {
-            System.out.printf("%5s",i);
+            //System.out.printf("%5s",i);
         }
-        System.out.println();
+        //System.out.println();
         for (int i = 0; i < num; i++) 
         {
-            System.out.printf("%5s",i);
+            //System.out.printf("%5s",i);
             for (int j = 0; j < num; j++) 
             {
-                System.out.printf("%5s",(int)distance[i][j]);
+                //System.out.printf("%5s",(int)distance[i][j]);
             }
-            System.out.println();
+            //System.out.println();
         }
     }
 }
