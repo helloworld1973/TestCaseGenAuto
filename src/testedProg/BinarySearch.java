@@ -14,7 +14,8 @@ public class BinarySearch {
 		int low, high, mid;
 		low = 0;
 		high = n - 1;
-		while (low <= high) {
+		while (low <= high) 
+		{
 			mid = (low + high) / 2;
 			if (arr[mid] == key) {
 				return mid;

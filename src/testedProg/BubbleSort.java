@@ -4,9 +4,10 @@ public class BubbleSort{
 	/*
    Bubble Sort
 	 */
-
-	public void sort(int[] array)
+	
+	public String sort(int[] array)
 	{
+		String routeString=new String("");
 		for (int i = 1; i < array.length;i++)
 		{
 			//compare 2 neighbouring elements, move the bigger one backward
@@ -17,10 +18,17 @@ public class BubbleSort{
 					int temp = array[j];
 					array[j] = array[j+1];
 					array[j+1] = temp;
+					routeString+="@";
+				}else
+				{
+					routeString+="#";
 				}
 			}
 		}
+		System.out.println(routeString);
 		showArray(array);
+		return routeString;
+		
 	}
 
 	public void showArray(int [] array)

@@ -1,5 +1,7 @@
 package acoAlgo;
 
+import java.util.ArrayList;
+
 public class Tools {
 	
 	public String enCode10to2(Integer i)
@@ -8,7 +10,6 @@ public class Tools {
 		return string2;
 		
 	}
-
 	
 	public String deCode2to10(String string2)
 	{
@@ -46,4 +47,34 @@ public class Tools {
     	return (double)sameChars/(double)totalChars;
     }
 
+    public ArrayList<String> genWeWantRoute(int routeLength)
+    {
+    	ArrayList<String> aList=new ArrayList<>();//@#
+		String aString="@";
+		String bString="#";
+		aList.add(aString);aList.add(bString);
+    	for(int i=1;i<routeLength;i++)
+    	{
+    		int sizeNow=aList.size();
+	         for(int j=0;j<sizeNow;j++)
+	         {
+	        	 aList.add(aList.get(j));
+	         }
+	         for(int k=0;k<aList.size()/2;k++)
+	         {
+	        	 String original=aList.get(k);
+	        	 aList.set(k, original+"@");
+	         }
+	         for(int s=aList.size()/2;s<aList.size();s++)
+	         {
+	        	 String original=aList.get(s);
+	        	 aList.set(s, original+"#");
+	         }
+    	}
+    	for(int m=1;m<aList.size();m++)
+    	{
+    		System.out.println(aList.get(m));
+    	}
+		return aList;
+    }
 }

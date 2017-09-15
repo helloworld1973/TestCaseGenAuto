@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
+import testedProg.BubbleSort;
 import testedProg.Triangle;
 
 /**
@@ -104,13 +105,13 @@ public class ANT {
         for (int i = 0; i < Allowed.size(); i++) {
             p += Allowed.get(i) + ";";
         }
-       // System.out.println(p);
+        //System.out.println(p);
     }
         
     public String updatePheromone(double Q,long t,String weWantRoute)
 {
         Q = Q/roadLength;
-        //后面的部分需要修改
+        
         String string2="";//一只蚂蚁走过的路径为二进制结构
         for(int j=0;j<Tabu.size();j++)
         {
@@ -123,6 +124,41 @@ public class ANT {
         }
         string2=string2+(int)(CityGraph.getDistance(Tabu.size()-1, 0))+"";
         
+        
+        //bubbleSort
+        ArrayList<String> aList=new ArrayList<>();
+        for(int m=0;m<5;m++)
+        {
+            int first=m*6;
+        	aList.add(string2.substring(first, first+6));
+        }
+
+        Tools tools=new Tools();
+        int[] intArray=new int[aList.size()];
+        int[] notChangeIntArray=new int[aList.size()];
+        for(int n=0;n<aList.size();n++)
+        {
+        	intArray[n]=Integer.parseInt(tools.deCode2to10(aList.get(n)));
+        }
+        
+        BubbleSort bubbleSort=new BubbleSort();
+        notChangeIntArray=intArray.clone();
+        String realRoute=bubbleSort.sort(intArray);
+        double score=tools.calScore(weWantRoute, realRoute);
+        System.out.println("SCORE:  "+score);
+        if(score==1.0)
+        {
+        	for(int o=0;o<notChangeIntArray.length;o++)
+        	{
+        		System.out.println(notChangeIntArray[o]);
+        	}
+            return "!";
+        }
+        //bubbleSort      
+        
+        
+/* 
+        //triangle
         String aString=string2.substring(0, 8);
         String bString=string2.substring(8, 16);
         String cString=string2.substring(16, 24);
@@ -133,7 +169,6 @@ public class ANT {
         int c=Integer.parseInt(tools.deCode2to10(cString));
         Triangle triangle=new Triangle();
         String realRoute=triangle.judge(a, b, c);
-        //String weWantRoute="22";//000 && 001 && 11 && 22 && 33 
         double score=tools.calScore(weWantRoute, realRoute);
         if(score==1.0)
         {
@@ -141,6 +176,10 @@ public class ANT {
             return "!";
             
         }
+        //triangle
+*/        
+        
+        
         Q=Q*score;
         
         for(int i=0;i<Tabu.size()-1;i++)

@@ -7,7 +7,7 @@ public class ACO
 
 	private static final String String = null;
 	private CityGraph weight_distance;
-	private int citynum = 24;
+	private int citynum = 30;//triangle:24 (3*8产生0~255的三个数)  bubbleSort: (5*6产生0~63的5个数)
 	private int p = 1000;//迭代次数
 	private double bestLength;
 	private String bestTour;
@@ -113,7 +113,29 @@ public class ACO
 	public static void main(String[] args) 
 	{
 		ArrayList<String> aList=new ArrayList<>();
+		
+		//bubbleSort
+		int routeLength=0;
+		for (int j = 1; j < 5;j++)
+		{
+			for (int m=0;m <5-j;m++)
+			{
+				routeLength++;
+			}
+		}
+		Tools tools=new Tools();
+		aList=tools.genWeWantRoute(routeLength);
+		//aList.add("@#@@#@####");
+		//bubbleSort 
+		
+		
+		
+		
+/*
+		//triangle
 		aList.add("000");aList.add("001");aList.add("11");aList.add("22");aList.add("33");
+		//triangle
+*/		
 		ACO aco = new ACO();
 		for(int i=0;i<aList.size();i++)
 		{
