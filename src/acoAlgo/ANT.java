@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
+import testedProg.BinarySearch;
 import testedProg.BubbleSort;
 import testedProg.Triangle;
 
@@ -125,6 +126,48 @@ public class ANT {
         string2=string2+(int)(CityGraph.getDistance(Tabu.size()-1, 0))+"";
         
         
+/*      //binarySearch
+        ArrayList<String> aList=new ArrayList<>();
+        for(int m=0;m<6;m++)
+        {
+            int first=m*6;
+        	aList.add(string2.substring(first, first+6));
+        }
+        String value=aList.get(aList.size()-1);
+        aList.remove(aList.size()-1);
+
+        Tools tools=new Tools();
+        int valueFind=Integer.parseInt(tools.deCode2to10(value));
+        
+        int[] intArray=new int[aList.size()];
+
+        for(int n=0;n<aList.size();n++)
+        {
+        	intArray[n]=Integer.parseInt(tools.deCode2to10(aList.get(n)));
+        }
+        
+        
+        BubbleSort bubbleSort=new BubbleSort();
+        bubbleSort.sort(intArray);
+        BinarySearch binarySearch=new BinarySearch();
+        String realRoute=binarySearch.binarySearch(intArray,valueFind);
+        double score=tools.calScore(weWantRoute, realRoute);
+        System.out.println("SCORE:  "+score);
+        if(score==1.0)
+        {
+        	for(int o=0;o<intArray.length;o++)
+        	{
+        		System.out.println(intArray[o]);
+        	}
+        	System.out.println("***************************");
+    		System.out.println(valueFind);
+            return "!";
+        }  
+        
+      //binarySearch
+*/        
+              
+        
         //bubbleSort
         ArrayList<String> aList=new ArrayList<>();
         for(int m=0;m<5;m++)
@@ -155,6 +198,8 @@ public class ANT {
             return "!";
         }
         //bubbleSort      
+        
+ 
         
         
 /* 

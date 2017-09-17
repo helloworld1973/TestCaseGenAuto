@@ -13,6 +13,7 @@ public class CityGraph
     private static double distance[][];
     private static double pheromone[][];
     private static int num;
+    private static double ratio01=0.3;//0-1
     Random random = new Random();
 
     public CityGraph(int num) 
@@ -35,7 +36,7 @@ public class CityGraph
                         distance[i][j] = 0;
                     } else 
                     {
-                        distance[i][j] = distance[j][i] = Math.random()>0.5?1:0; //产生各点之间的距离=绝对值(i-j)
+                        distance[i][j] = distance[j][i] = Math.random()>ratio01?1:0; //产生各点之间的距离=绝对值(i-j)
                     }
                 }
         }

@@ -2,12 +2,15 @@ package acoAlgo;
 
 import java.util.ArrayList;
 
+import javax.lang.model.element.Element;
+
 public class ACO 
 {
 
 	private static final String String = null;
 	private CityGraph weight_distance;
-	private int citynum = 30;//triangle:24 (3*8产生0~255的三个数)  bubbleSort: (5*6产生0~63的5个数)
+	private int citynum = 36;//triangle:24 (3*8产生0~255的三个数)  bubbleSort: (5*6产生0~63的5个数)
+	                         //binarySearch:36(5*6+1*6 产生0~63的6个数)
 	private int p = 1000;//迭代次数
 	private double bestLength;
 	private String bestTour;
@@ -92,7 +95,8 @@ public class ACO
 	/**
 	 * 迭代结束
 	 */
-	private String iterator(String weWantRoute) {
+	private String iterator(String weWantRoute) 
+	{
 		Init_Distance();
 		Init_paras();
 		startTime = System.currentTimeMillis();
@@ -114,7 +118,8 @@ public class ACO
 	{
 		ArrayList<String> aList=new ArrayList<>();
 		
-		//bubbleSort
+		
+        //bubbleSort
 		int routeLength=0;
 		for (int j = 1; j < 5;j++)
 		{
@@ -125,10 +130,33 @@ public class ACO
 		}
 		Tools tools=new Tools();
 		aList=tools.genWeWantRoute(routeLength);
-		//aList.add("@#@@#@####");
 		//bubbleSort 
 		
+
 		
+/*
+		//binarySearch
+		double arrInt=5.0;
+		double d=Math.ceil(arrInt/2);
+		int totalCompareNum=(int) d;
+		Tools tools=new Tools();
+		
+		for(int j=totalCompareNum;j>1;j--)
+		{
+			ArrayList<String> aListTemp=new ArrayList<>();
+			aListTemp=tools.genWeWantRoute(j-1);
+			for(int i=0;i<aListTemp.size();i++)
+			{
+				String aString=aListTemp.get(i);
+				aList.add(aString+"$");
+			}
+		}
+		aList.remove(2);
+		aList.remove(2);
+		aList.add("$");
+		//binarySearch
+*/		
+
 		
 		
 /*
@@ -136,13 +164,17 @@ public class ACO
 		aList.add("000");aList.add("001");aList.add("11");aList.add("22");aList.add("33");
 		//triangle
 */		
-		ACO aco = new ACO();
+		
 		for(int i=0;i<aList.size();i++)
 		{
+			ACO aco = new ACO();
 			String iString=aco.iterator(aList.get(i));
 			if(iString!="!")
 			{
-				i--;
+				//i--;
+			}else
+			{
+				System.out.println("find!");
 			}
 		}
 		
