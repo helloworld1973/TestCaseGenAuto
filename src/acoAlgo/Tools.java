@@ -8,15 +8,16 @@ public class Tools {
 	{
 		String string2=Integer.toBinaryString(i);
 		return string2;
-		
 	}
+	//encode from decimalism to binary encode
 	
 	public String deCode2to10(String string2)
 	{
 		String string10=Integer.valueOf(string2,2).toString();
 		return string10;
 	}
-
+	//decode from binary to decimalism
+	
     public double calScore(String a,String b)
     {//compare 2 string,and calculate the different as the score.
     	int sameChars=0;
@@ -46,7 +47,9 @@ public class Tools {
     	}
     	return (double)sameChars/(double)totalChars;
     }
-
+    //calculate how many differents are there between the route we want and the current interation generates
+    //use the differents to cal the score
+    
     public ArrayList<String> genWeWantRoute(int routeLength)
     {
     	ArrayList<String> aList=new ArrayList<>();//@#
@@ -77,4 +80,5 @@ public class Tools {
     	}
 		return aList;
     }
+    //automatically generate route we want
 }

@@ -9,9 +9,10 @@ public class ACO
 
 	private static final String String = null;
 	private CityGraph weight_distance;
-	private int citynum = 36;//triangle:24 (3*8产生0~255的三个数)  bubbleSort: (5*6产生0~63的5个数)
-	                         //binarySearch:36(5*6+1*6 产生0~63的6个数)
-	private int p = 1000;//迭代次数
+	private int citynum = 36;//triangle:24 (3*8 generate 0~255  three number)  
+	                         //bubbleSort:30 (5*6 generate 0~63 five number)
+	                         //binarySearch:36(5*6+1*6 generate 0~63 six number)
+	private int p = 1000;//interation times
 	private double bestLength;
 	private String bestTour;
 	private int antNum = 100;
@@ -23,13 +24,13 @@ public class ACO
 	private long startTime;
 	private long endTime;
 
-	//初始化城市信息，假设为非对称TSP问题
+	//initial 
 	private void Init_Distance() 
 	{
 		weight_distance = new CityGraph(citynum);
 	}
 
-	//参数初始化
+	//initial pares
 	private void Init_paras() 
 	{
 		bestLength = Double.MAX_VALUE;
@@ -37,10 +38,10 @@ public class ACO
 	}
 
 	/**
-	 * P<最大迭代次数
+	 * P< the max interations
 	 */
 	private void Init_Ants() 
-	{ //每次循环的每只蚂蚁都是新蚂蚁，没有残留信息
+	{ //each interation is a new start, no last interation's info
 		ants = null;
 		ants = new ANT[antNum];
 		for (int i = 0; i < antNum; i++) 
@@ -51,9 +52,7 @@ public class ACO
 		}
 	}
 
-	//对每只蚂蚁按概率选择移动到下一个节点，直至遍历全部节点
-	//当一只蚂蚁结束遍历时，应该更新全局信息素矩阵
-	//计算每只蚂蚁的路径长度，
+
 	private void MovetoNextCity() {
 		for (int i = 0; i < antNum; i++) {
 			ants[i].chooseNextCity();
@@ -62,7 +61,7 @@ public class ACO
 		}
 	}
 
-	//记录当前最好解
+	//record the best result right now
 	private void findBestRoad() {
 
 		for (int i = 0; i < antNum; i++) {
@@ -73,11 +72,9 @@ public class ACO
 				bestAnt = i;
 			}
 		}
-		//System.out.println("当前最优解是：" + bestTour);
-		//System.out.println("该路径下的最低消耗：" + bestLength);
 	}
-	//按更新方程修改轨迹长度
-
+	//based on update score to update 
+	
 	private String updatePheromone(String weWantRoute) {
 
 		for (int i = 0; i < antNum; i++) 
@@ -92,17 +89,15 @@ public class ACO
 
 	}
 
-	/**
-	 * 迭代结束
-	 */
+	
 	private String iterator(String weWantRoute) 
 	{
 		Init_Distance();
 		Init_paras();
 		startTime = System.currentTimeMillis();
 		for (int i = 0; i < p; i++) 
-		{//一次迭代即更新了一次解空间
-			System.out.println("第" + i + "次迭代：");
+		{//after each iteration,the results will update 
+			System.out.println("The" + i + "th  iterations：");
 			Init_Ants();
 			MovetoNextCity();
 			findBestRoad();

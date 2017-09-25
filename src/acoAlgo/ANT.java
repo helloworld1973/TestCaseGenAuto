@@ -47,15 +47,16 @@ public class ANT {
         Allowed.removeAll(Tabu);
     }
 
-    //轮盘赌选择,对于第一只蚂蚁，每个方向上的可能性是一样的，先归一化信息素矩阵
+    //use roulette selection to choose. For each ant, every directions have the same posibility
     public void chooseNextCity() {
         while (Allowed.size() > 0) 
         {
 //          getAllowed();
 
-            double[] nextcities = CityGraph.getCities(currentCity);//得到从当前城市可到达的下一城市，可根据CityGraph形式改变
-            //去除不可到达城市
-            //轮盘赌选择
+            double[] nextcities = CityGraph.getCities(currentCity);
+            //get the reachable cities from the current cities
+            //delete the unreachable cities
+            //statistic  roulette selection to choose
             int tempcity = nextcities.length - 1;
             double all_p = 0.0;
             for (int i = 0; i < nextcities.length; i++) 
@@ -113,7 +114,7 @@ public class ANT {
 {
         Q = Q/roadLength;
         
-        String string2="";//一只蚂蚁走过的路径为二进制结构
+        String string2="";//the route(the ant walks through) is binary structure
         for(int j=0;j<Tabu.size();j++)
         {
         	if(j!=Tabu.size()-1)
