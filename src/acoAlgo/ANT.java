@@ -127,7 +127,7 @@ public class ANT {
         string2=string2+(int)(CityGraph.getDistance(Tabu.size()-1, 0))+"";
         
         
-/*      //binarySearch
+/*        //binarySearch
         ArrayList<String> aList=new ArrayList<>();
         for(int m=0;m<6;m++)
         {
@@ -169,7 +169,7 @@ public class ANT {
 */        
               
         
-        //bubbleSort
+/*        //bubbleSort
         ArrayList<String> aList=new ArrayList<>();
         for(int m=0;m<5;m++)
         {
@@ -199,11 +199,11 @@ public class ANT {
             return "!";
         }
         //bubbleSort      
-        
+*/        
  
         
         
-/* 
+ 
         //triangle
         String aString=string2.substring(0, 8);
         String bString=string2.substring(8, 16);
@@ -223,7 +223,7 @@ public class ANT {
             
         }
         //triangle
-*/        
+        
         
         
         Q=Q*score;

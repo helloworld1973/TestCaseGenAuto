@@ -114,7 +114,7 @@ public class ACO
 		ArrayList<String> aList=new ArrayList<>();
 		
 		
-        //bubbleSort
+/*        //bubbleSort
 		int routeLength=0;
 		for (int j = 1; j < 5;j++)
 		{
@@ -126,11 +126,11 @@ public class ACO
 		Tools tools=new Tools();
 		aList=tools.genWeWantRoute(routeLength);
 		//bubbleSort 
-		
+*/		
 
 		
-/*
-		//binarySearch
+
+		/*//binarySearch
 		double arrInt=5.0;
 		double d=Math.ceil(arrInt/2);
 		int totalCompareNum=(int) d;
@@ -154,11 +154,11 @@ public class ACO
 
 		
 		
-/*
+
 		//triangle
 		aList.add("000");aList.add("001");aList.add("11");aList.add("22");aList.add("33");
 		//triangle
-*/		
+		
 		
 		for(int i=0;i<aList.size();i++)
 		{
