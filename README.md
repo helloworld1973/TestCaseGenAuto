@@ -1,4 +1,3 @@
 # TestCaseGenAuto
-software test automation using machine learning \
-include neural network, genetic algorithm, particle swarm optimization algorithm\
+software test automation using ACO \
 tested program include triangle, binary search, bubble sort
